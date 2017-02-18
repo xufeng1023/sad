@@ -1,9 +1,9 @@
 <template>
 	<section id="feed" class="hero is-primary is-fullheight">
-  		<div id="search" class="z999 has-shadow is-flex">
+  		<div id="search" class="z999 has-shadow is-flex g-bg fixed v-centered full-width">
 	  		<input class="input is-success rounded-border" type="text" placeholder="search subjects">
   		</div>
-		<div id="content">
+		<div id="content" class="w-bg scrolled">
 				<Box></Box>
 				<Box></Box>
 				<Box></Box>
@@ -11,7 +11,7 @@
 				<Box></Box>
 				<Box></Box>
 		</div>
-		<div id="menu" class="tabs is-centered">
+		<div id="menu" class="tabs g-bg fixed v-centered w full-width is-centered">
 	  		<ul>
 		    	<li class="is-active"><a>Pictures</a></li>
 		    	<li><a>Music</a></li>
@@ -36,31 +36,19 @@
 
 <style>
 	#search {
-		background-color: #00d1b2;
-	    flex-direction: column;
-    	justify-content: center;
-		position: fixed;
 	    padding-top: 3vh;
     	height: 10vh;
-    	width: 100vw;
 		top: 0;
 	}
 	#content {
-		overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
 		margin-top: 10vh;
-		background: white;
-		height: 90vh;
+		max-height: 90vh;
 	}
-	#content::-webkit-scrollbar { 
+	::-webkit-scrollbar { 
 	    display: none; 
 	}
 	#menu {
-	    background-color: #00d1b2;
-    	color: #fff;
-		position: fixed;
 		height: 6vh;
-	    width: 100vw;
 		bottom: 0;
 	}
 </style>

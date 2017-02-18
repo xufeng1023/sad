@@ -1,6 +1,6 @@
 <template>
 	<section id="chat" class="hero is-primary is-fullheight">
-		<div id="search" class="z999 has-shadow is-flex">
+		<div id="search" class="z999 has-shadow is-flex g-bg fixed v-centered full-width">
 			<nav class="level is-mobile">
 			  <div class="level-left">
 			    <div class="level-item">
@@ -14,7 +14,7 @@
 			  </div>
 			</nav>
 		</div>
-	  <div id="content" class="chat-body">
+	  <div id="content" class="chat-body w-bg scrolled">
       	<msg-left></msg-left>
       	<msg-left></msg-left>
       	<msg-left></msg-left>
@@ -22,12 +22,8 @@
       	<msg-left></msg-left>
 		<msg-right></msg-right>
 	  </div>
-	  <div id="menu">
-	    <div 
-		    id="chat-input" 
-		    class="rounded" 
-		    contenteditable="true"
-	    >
+	  <div id="menu" class="chat-text g-bg fixed is-flex v-centered w full-width">
+	    <div id="chat-input" contenteditable="true" @keyup="updateHeight" class="rounded w-bg">
 	    </div>
 	  </div>
 	</div>
@@ -43,6 +39,16 @@
 				
 			}
 		},
+		methods: {
+			updateHeight() {
+				let chatBody = document.querySelector('.chat-body');
+				let body = document.querySelector('body');
+				let chatFoot = document.querySelector('#menu');
+				let search = document.querySelector('#search');
+				let chatHeight = body.clientHeight - search.clientHeight - chatFoot.clientHeight;
+				chatBody.clientHeight = '50vh';
+			}
+		},
 		components: {
 			'msg-left': MsgLeft,
 			'msg-right': MsgRight
@@ -51,18 +57,19 @@
 </script>
 
 <style>
+	.chat-text {
+		padding: 1vh 30vw;
+		height: auto !important;
+	}
 	#chat-input {
-	    width: 100%;
+		max-height: 8rem;
 	    color: #333;
-	    max-height: 4rem;
-	    overflow: auto;
 	    outline: none;
-	    border: 1px solid #00d1b2;
-    	box-shadow: 0 0 3px 1px rgba(0,0,0,.20);
+	    overflow-y: scroll;
 	}
 	.chat-body {
 		padding: 0 4vw;
-		    overflow-x: hidden;
+		overflow-x: hidden;
 	}
 	.msg-left, .msg-right {
 		max-width: 80%;
