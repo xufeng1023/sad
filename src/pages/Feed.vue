@@ -1,6 +1,6 @@
 <template>
 	<section id="feed" class="hero is-primary is-fullheight">
-  		<div id="search" class="z999 has-shadow">
+  		<div id="search" class="z999 has-shadow is-flex">
 	  		<input class="input is-success rounded-border" type="text" placeholder="search subjects">
   		</div>
 		<div id="content">
@@ -37,19 +37,20 @@
 <style>
 	#search {
 		background-color: #00d1b2;
+	    flex-direction: column;
+    	justify-content: center;
 		position: fixed;
 	    padding-top: 3vh;
-    	height: 8vh;
+    	height: 10vh;
     	width: 100vw;
 		top: 0;
 	}
 	#content {
 		overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-		margin-top: 8vh;
-		/*margin-bottom: 5vh;*/
+		margin-top: 10vh;
 		background: white;
-		height: 92vh;
+		height: 90vh;
 	}
 	#content::-webkit-scrollbar { 
 	    display: none; 

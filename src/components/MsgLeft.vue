@@ -15,3 +15,9 @@
 
 	}
 </script>
+
+<style>
+	.msg-left {
+		margin-right: 20%;
+	}
+</style>

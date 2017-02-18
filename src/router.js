@@ -8,7 +8,7 @@ const rootPath = window.location.pathname
 export default new VueRouter({
   mode: 'history',
   routes: [
-      { path: rootPath, component: Feed },
+      { path: rootPath, component: Chat },
       { path: '/feeds', component: Feed },
       { path: '/chat', component: Chat },
   ]

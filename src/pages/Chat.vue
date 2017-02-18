@@ -1,10 +1,7 @@
 <template>
-	<div class="hero is-primary">
-	  <div class="hero-head z999">
-	  	<div id="top-bar"></div>
-	    <header class="nav">
-	      <div class="container">
-	        <nav class="level is-mobile">
+	<section id="chat" class="hero is-primary is-fullheight">
+		<div id="search" class="z999 has-shadow is-flex">
+			<nav class="level is-mobile">
 			  <div class="level-left">
 			    <div class="level-item">
 			      <router-link to="/feeds">
@@ -16,23 +13,16 @@
 			    <p class="level-item"></p>
 			  </div>
 			</nav>
-	      </div>
-	    </header>
+		</div>
+	  <div id="content" class="chat-body">
+      	<msg-left></msg-left>
+      	<msg-left></msg-left>
+      	<msg-left></msg-left>
+      	<msg-right></msg-right>
+      	<msg-left></msg-left>
+		<msg-right></msg-right>
 	  </div>
-	  <div class="hero-body">
-      	<msg-left></msg-left>
-      	<msg-left></msg-left>
-      	<msg-left></msg-left>
-      	<msg-left></msg-left>
-		<article class="msg-right">
-		  	<div class="media-content box">
-			    <div class="content">
-	        		<p>Lore Lore Lore Lore Lore Lore Lore Lore Lore Lore Lor</p>
-			    </div>
-		  	</div>
-		</article>
-	  </div>
-	  <div class="hero-foot z999">
+	  <div id="menu">
 	    <div 
 		    id="chat-input" 
 		    class="rounded" 
@@ -45,6 +35,7 @@
 
 <script>
 	import MsgLeft from '../components/msgLeft.vue'
+	import MsgRight from '../components/msgRight.vue'
 
 	export default {
 		data() {
@@ -53,7 +44,8 @@
 			}
 		},
 		components: {
-			'msg-left': MsgLeft
+			'msg-left': MsgLeft,
+			'msg-right': MsgRight
 		}
 	}
 </script>
@@ -68,36 +60,14 @@
 	    border: 1px solid #00d1b2;
     	box-shadow: 0 0 3px 1px rgba(0,0,0,.20);
 	}
-	/*.hero-head {
-		height: 10vh;
-		background-color: #00d1b2;
-	}*/
-	/*.hero-foot {
-	    width: 100%;
-	    height: 5vh;
-		padding: 0.5rem 1.5rem;
-	}*/
-	/*.hero-body {
-		display: block;
-		overflow: scroll;
-		height: 85vh;
-	}*/
-	/*.hero-body,.hero-foot {
-		background: #fff;
-	}*/
-	/*.nav>.container {
-		justify-content: center;
-	}*/
+	.chat-body {
+		padding: 0 4vw;
+		    overflow-x: hidden;
+	}
 	.msg-left, .msg-right {
-		max-width: 90%;
+		max-width: 80%;
 		position: relative;
 		margin-bottom: 1.5rem;
-	}
-	.msg-left {
-		margin-right: 10%;
-	}
-	.msg-right {
-		margin-left: 10%;
 	}
 	.msg-left::before, .msg-left::after,
 	.msg-right::before, .msg-right::after {
