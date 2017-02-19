@@ -12,6 +12,19 @@
 	html,body {
 		height: 100%;
 	}
+	#top {
+	    padding-top: 3vh;
+    	height: 10vh;
+		top: 0;
+	}
+	#content {
+		margin-top: 10vh;
+		max-height: 90vh;
+	}
+	#bottom {
+		height: 6vh;
+		bottom: 0;
+	}
 	.has-shadow {
 		box-shadow: 0 6px 3px rgba(10, 10, 10, 0.1);
 	}
@@ -43,5 +56,8 @@
 	}
 	.full-width {
 		width: 100vw;
+	}
+	::-webkit-scrollbar { 
+	    display: none; 
 	}
 </style>

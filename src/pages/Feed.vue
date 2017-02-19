@@ -1,6 +1,6 @@
 <template>
 	<section id="feed" class="hero is-primary is-fullheight">
-  		<div id="search" class="z999 has-shadow is-flex g-bg fixed v-centered full-width">
+  		<div id="top" class="z999 has-shadow is-flex g-bg fixed v-centered full-width">
 	  		<input class="input is-success rounded-border" type="text" placeholder="search subjects">
   		</div>
 		<div id="content" class="w-bg scrolled">
@@ -11,7 +11,7 @@
 				<Box></Box>
 				<Box></Box>
 		</div>
-		<div id="menu" class="tabs g-bg fixed v-centered w full-width is-centered">
+		<div id="bottom" class="tabs g-bg fixed v-centered w full-width is-centered">
 	  		<ul>
 		    	<li class="is-active"><a>Pictures</a></li>
 		    	<li><a>Music</a></li>
@@ -35,20 +35,5 @@
 </script>
 
 <style>
-	#search {
-	    padding-top: 3vh;
-    	height: 10vh;
-		top: 0;
-	}
-	#content {
-		margin-top: 10vh;
-		max-height: 90vh;
-	}
-	::-webkit-scrollbar { 
-	    display: none; 
-	}
-	#menu {
-		height: 6vh;
-		bottom: 0;
-	}
+	
 </style>
