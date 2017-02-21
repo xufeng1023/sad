@@ -18,15 +18,14 @@
       	<msg v-for="msg in messages" :msg="msg"></msg>
 	  </div>
 	  <div id="bottom" class="chat-text g-bg fixed is-flex v-centered w full-width">
-	    <div id="chat-input" contenteditable="true" class="rounded w-bg">
+	    <div id="chat-input" contenteditable="true" class="rounded w-bg" @focus="onFocus"  @blur="onBlur">
 	    </div>
 	  </div>
 	</div>
 </template>
 
 <script>
-	import MsgLeft from '../components/msgLeft.vue'
-	import MsgRight from '../components/msgRight.vue'
+	import Msg from '../components/Msg.vue'
 
 	export default {
 		data() {
@@ -43,11 +42,17 @@
 			}
 		},
 		methods: {
-			
+			onBlur() {
+				let top = document.querySelector('#top')
+				top.style.top = 0
+			},
+			onFocus() { 
+				let top = document.querySelector('#top')
+				top.style.top = "52%"
+			}
 		},
 		components: {
-			'msg': MsgLeft,
-			'msg-right': MsgRight
+			'msg': Msg,
 		}
 	}
 </script>

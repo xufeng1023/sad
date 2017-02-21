@@ -4,12 +4,12 @@
 	  		<input class="input is-success rounded-border" type="text" placeholder="search subjects">
   		</div>
 		<div id="content" class="w-bg scrolled">
-				<Box></Box>
-				<Box></Box>
-				<Box></Box>
-				<Box></Box>
-				<Box></Box>
-				<Box></Box>
+				<Feed></Feed>
+				<Feed></Feed>
+				<Feed></Feed>
+				<Feed></Feed>
+				<Feed></Feed>
+				<Feed></Feed>
 		</div>
 		<div id="bottom" class="tabs g-bg fixed v-centered w full-width is-centered">
 	  		<ul>
@@ -29,7 +29,7 @@
 
 	export default {
 		components: {
-			Box: Article
+			Feed: Article
 		}
 	}
 </script>

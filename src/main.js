@@ -1,9 +1,7 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 import router from './router.js'
+import store from './store'
 import App from './App.vue'
-
-Vue.use(VueRouter)
 
 // 'load', 'deviceready', 'offline', and 'online'.
 
@@ -13,6 +11,7 @@ function onDeviceReady() {
     new Vue({
       el: '#app',
       router,
+      store,
       render: h => h(App)
     })
    
