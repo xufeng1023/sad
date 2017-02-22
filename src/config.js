@@ -1,0 +1,1 @@
+export const rootPath = window.location.pathname

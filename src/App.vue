@@ -57,6 +57,9 @@
 	.full-width {
 		width: 100vw;
 	}
+	.error {
+		color: red;
+	}
 	::-webkit-scrollbar { 
 	    display: none; 
 	}

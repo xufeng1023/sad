@@ -3,15 +3,14 @@ import VueRouter from 'vue-router'
 import Home from './pages/Home.vue'
 import Feed from './pages/Feed.vue'
 import Chat from './pages/Chat.vue'
+import * as Config from './config'
 
 Vue.use(VueRouter)
-
-const rootPath = window.location.pathname
 
 export default new VueRouter({
   mode: 'history',
   routes: [
-      { path: rootPath, component: Home },
+      { path: Config.rootPath, component: Home },
       { path: '/feeds', component: Feed },
       { path: '/chat', component: Chat },
   ]

@@ -1,20 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as getters from './getters'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
 const state = {
 	login: {
-		nickname: null,
-		language: 'Chinese'
+		nickname: 'tt',
+		language: 'English'
 	}
-}
-
-const mutations = {
-  checkNickname (state, { name }) {
-    if(!name) alert('no')
-  }
 }
 
 export default new Vuex.Store({

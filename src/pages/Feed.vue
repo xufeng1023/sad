@@ -16,7 +16,7 @@
 		    	<li class="is-active"><a>Pictures</a></li>
 		    	<li><a>Music</a></li>
 		    	<li><a>Videos</a></li>
-		    	<router-link to="/" tag="li">
+		    	<router-link :to="rootPath" tag="li">
 		    		<a><i class="fa fa-sign-out"></i></a>
 	    		</router-link>
 		  	</ul>
@@ -25,12 +25,22 @@
 </template>
 
 <script>
-	import Article from '../components/Article.vue'
+	import Feed from '../components/Article.vue'
+	import { rootPath } from '../config'
 
 	export default {
+		data() {
+			return {
+				rootPath
+			}
+		},
 		components: {
-			Feed: Article
-		}
+			Feed,
+		},
+		beforeRouteLeave (to, from, next) {
+		    window.localStorage.removeItem('vue-test')
+		    next()
+	  	}
 	}
 </script>
 

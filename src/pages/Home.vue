@@ -3,11 +3,12 @@
 		<div class="columns">
 	  		<div class="column is-half is-offset-one-quarter">
 				<p class="control">
-				  <input class="input is-success" type="text" v-model.trim="nickname" placeholder="Nickname">
+				  <input class="input is-success" type="text" placeholder="Nickname" v-model="name" @keydown="resetError">
+				  <Error v-if="error" :text="error"></Error>
 				</p>
 				<p class="control">
 				  <span class="select is-fullwidth">
-				    <select class="is-success is-fullwidth" v-model="language">
+				    <select class="is-success is-fullwidth" v-model="lan">
 				      <option value="English">English</option>
 				      <option value="Chinese">Chinese</option>
 				      <option value="Japanese">Japanese</option>
@@ -15,7 +16,7 @@
 				  </span>
 				</p>
 				<p class="control">
-					<router-link to="/feeds" tag="button" class="button is-primary is-fullwidth" @click.native="checkNickname({name:nickname})">Start</router-link>
+					<router-link to="/feeds" tag="button" class="button is-primary is-fullwidth">Start</router-link>
 				</p>
 	  		</div>
 		</div>
@@ -23,21 +24,35 @@
 </template>
 
 <script>
-	import { mapGetters, mapMutations } from 'vuex'
+	import Error from '../components/Error.vue'
 
 	export default {
 		data() {
 			return {
-				selectLan: "Chinese"
+				name: '',
+				lan: 'English',
+				error: ''
 			}
 		},
-		computed: mapGetters([
-			'nickname',
-			'language'
-		]),
-		methods: mapMutations([
-			'checkNickname'
-		])
+		components: {
+			Error
+		},
+		methods: {
+			resetError() {
+				this.error = ''
+			},
+			login() {
+				return (/^[a-z0-9]+$/i).test(this.name)
+			}
+		},
+		beforeRouteLeave (to, from, next) {
+		    if(this.login()) {
+			    window.localStorage.setItem('vue-test', this.name)
+		    	next()
+		    	return false
+		    }
+		    this.error = 'Nickname can only contain...'
+	  	}
 	}
 </script>
 
